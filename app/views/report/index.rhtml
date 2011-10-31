@@ -1,0 +1,11 @@
+<h2>Let your voice be heard</h2>
+<p>Call <span class="phone-number">(415) 738-5445</span> and leave a message saying why you occupy.  Make sure to say your name and location!</p>
+<h3>Messages from the frontline</h3>
+<a href='/report/index/sort/date'>sort by date</a> <a href='/report/index/sort/votes'>sort by votes</a>
+<hr />
+<div class="event-list" id="upcoming-events">
+  <% @reports.each do |r| %>
+    <%= render :partial => 'item', :locals => {:r=>r} %>
+  <% end %>
+</div>
+

@@ -1,0 +1,32 @@
+    <div class="row clearfix">
+      <div class="event">
+        <h4><%= r.address%></h4>
+        <div class="flash-audio" style="display:none;">
+          <object type="application/x-shockwave-flash" data="/player.swf" id="audioplayer<%= r.id %>" height="24" width="290">
+            <param name="movie" value="/player.swf">
+            <param name="FlashVars" value="playerID=<%= r.id %>&amp;soundFile=<%= r.voice_mail_url %>">
+            <param name="quality" value="high">
+            <param name="menu" value="false">
+            <param name="wmode" value="transparent">
+          </object>
+        </div>
+        <div class="native-audio" style="display:none;">
+          <audio src="<%= r.voice_mail_url %>" controls>
+          </audio>
+        </div>
+        <% unless r.voted_already?(request.remote_ip) %>
+          <div class='upvote' id='upvote_<%= r.id.to_s %>'></div>
+        <% end %>
+        <div class='votes' id='votes_<%= r.id.to_s %>'>
+          <%= r.votes.count %> votes
+        </div>
+        <div class="addthis_toolbox addthis_default_style ">
+          <a addthis:url="<%= show_report_url(r) %>" class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a addthis:url="<%= show_report_url(r) %>" class="addthis_button_tweet"></a>
+          <a addthis:url="<%= show_report_url(r) %>" class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+          <a addthis:url="<%= show_report_url(r) %>" class="addthis_counter addthis_pill_style"></a>
+        </div>
+        <p><%= r.description %></p>
+      </div>
+    </div>
+

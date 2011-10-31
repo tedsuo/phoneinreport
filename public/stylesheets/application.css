@@ -1,1 +1,5 @@
 @import "scaffold.css";
+#flash{
+border:1px solid black;
+background:#aaaaaa;
+}

@@ -21,6 +21,12 @@ body {
   padding-top: 10px;
 }
 
+#flash{
+border:1px solid black;
+background:#cccccc;
+padding:8px;
+}
+
 #calendar_menu {
   clear:none;
   margin:0;

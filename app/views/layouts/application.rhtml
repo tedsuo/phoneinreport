@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Occupy Messages</title>
+  <meta name="description" content="">
+
+  <meta name="author" content="">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <%= stylesheet_link_tag 'base' %>
+  <%= stylesheet_link_tag 'skeleton' %>
+  <%= stylesheet_link_tag 'layout' %>
+  <%= stylesheet_link_tag 'site' %>
+  <link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Rosario:400,400italic' rel='stylesheet' type='text/css'>
+
+  <!-- Javascript 
+  ================================================== -->
+  <%= javascript_include_tag 'jquery' %>
+  <%= javascript_include_tag 'audio_player' %>
+  <%= javascript_include_tag 'detect_native_audio' %>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ea8416b558ce0c5"></script>
+  <script type="text/javascript" src="/javascripts/interaction.js"></script>
+
+  <!-- Favicon
+  ================================================== -->
+  <link rel="shortcut icon" href="src/images/favicon.ico">
+
+  <%= yield :header %>
+</head>
+<body>
+
+      <div class="container">
+        <header>
+          <div id="top-banner" class="sixteen columns">
+            <a href="/"><h1><span class="highlight">Occupy</span> Messages</h1></a>                   
+          </div>
+        </header>
+        <div class="twelve columns content">
+          <div id="main-content">
+            <div id="flash-notice"><%= flash[:notice] %></div>
+            <div id="flash-error"><%= flash[:error] %></div>
+            <%= yield %>
+          </div>
+        </div><!-- content -->
+        <div class="four columns sidebar">
+          <nav>
+            <div id="sidebar-banner"></div>
+            <div id="sidebar-content">
+              <h3 id="logo">What what?</h3>
+              <p>These are messages of solidarity with the Occupy Wall Street movement, you can promote the ones you think are most inspiring by voting or even better by sharing them on social media. Or call <strong>(415) 738-5445</strong> to leave your own message!</p>
+              <ul>
+                <li><a href="/page/whatandwhy">What &amp; Why</a></li>
+                <li><a href="http://www.occupywishlist.org/needs.html">Support</a></li>
+                <li><a href="#footer">Privacy Policy</a></li>
+              </ul>
+            </div>
+          </nav>
+          &nbsp;
+        </div>        
+        <footer>
+          <div id="footer" class="sixteen columns">
+<a name="footer"></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/us/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">OccupyVoiceMail</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">OccupyVoiceMail</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/us/">Creative Commons Attribution-NonCommercial 3.0 United States License</a> <br />
+            <em>Privacy Policy: We share the information you've given us with everyone. We treat your name, city, state, and comments as public information. Leave it here to be heard. Leave it hear to inspire others.  We let others use this information freely to spread your voice and by leaving any information you are giving anyone a right to use it in any format, remix, media for promotional and educational purposes.  We don't sell it. We give it away to help people connect with each other via voice.</em>
+          </div>
+        </footer>
+      </div><!-- container -->
+      <div class="resize"></div>
+  </body>
+</html>

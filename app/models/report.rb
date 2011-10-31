@@ -1,17 +1,18 @@
 class Report < ActiveRecord::Base
-  FILE_STATUS = %w(pending tagged tagged_and_geocoded unpublished junk) 
+  FILE_STATUS = %w(pending tagged unpublished junk) 
   COUNTRY_CODE_USA = CountryCodes.find_by_name('United States of America')[:numeric]
 
   belongs_to :campaign
   has_one :voice_mail, :dependent => :destroy
   has_one :reporter, :class_name => 'User'
+  has_many :votes
 
   acts_as_mappable 
   before_validation :set_event, :geocode_address
   before_save :lookup_phone_locale, :update_status
 
   def address
-    tagged? ? [self.city, self.state, self.country].join(', ') : nil
+    tagged? ? [self.city, self.state].join(', ') : nil
   end
 
   def country
@@ -28,6 +29,13 @@ class Report < ActiveRecord::Base
 
   def phone=(phone)
     self.voice_mail.update_attribute(:phone, phone)
+  end
+
+  def voted_already? remote_ip
+    self.votes.each do |v|
+      return true if remote_ip == v.ip_address
+    end
+    false
   end
   
   require 'open-uri'
